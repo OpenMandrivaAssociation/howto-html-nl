@@ -49,6 +49,17 @@ EOF
 perl -p -i -e "s|<LI><A HREF=\"Bootdisk-HOWTO-NL.html\">De Linux Bootdisk HOWTO</A>|<LI><A HREF=\"Bootdisk-HOWTO-NL.html\">De Linux Bootdisk HOWTO</A>\n<LI><A HREF=\"Bootdisk/t1.html\">De Linux Bootdisk HOWTO</A>|" $RPM_BUILD_ROOT%{_docdir}/HOWTO/%{format2}/index.html
 # this perl line is needed to include the Bootdisk-howto which is in a directory with strange file name. 
 
+install -m 755 -d $RPM_BUILD_ROOT%{_datadir}/applications
+cat > %{buildroot}%_datadir/applications/mandriva-%{name}.desktop << EOF
+[Desktop Entry]
+Name=Howto %language
+Comment=HOWTO documents (html format) from the Linux Documentation Project in %language
+Exec=xdg-open %_datadir/doc/HOWTO/HTML/%lang/index.html
+Icon=documentation_section
+Terminal=false
+Type=Application
+Categories=Documentation;
+EOF
 
 %clean
 rm -rf $RPM_BUILD_ROOT
