@@ -67,7 +67,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(-,root,root)
 %{_docdir}/HOWTO/%{format2}
-%{_datadir}/applictions/*.desktop
+%{_datadir}/applications/*.desktop
 
 %post
 %{update_menus}
