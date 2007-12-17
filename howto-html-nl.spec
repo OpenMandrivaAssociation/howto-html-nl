@@ -15,7 +15,6 @@ Source0:   %name.tar
 
 Url:		http://nl.linux.org/doc/nlhowto.php
 License:	GPL
-BuildRoot:	%{_tmppath}/howto-%{format1}-root
 BuildArch:	noarch
 
 BuildRequires: howto-utils
