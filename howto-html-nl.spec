@@ -30,11 +30,11 @@ ftp://fjordland.nl.linux.org/pub/HOWTO-NL/all-howtos-html.tar.gz
 %setup -q -n %name
 
 %install
-rm -rf $RPM_BUILD_ROOT
-mkdir -p $RPM_BUILD_ROOT%{_docdir}/HOWTO/%{format2}
-untar_howtos; makehowtoindex %lang %language > index.html; cp -a * $RPM_BUILD_ROOT%{_docdir}/HOWTO/%{format2}
+rm -rf %{buildroot}
+mkdir -p %{buildroot}%{_docdir}/HOWTO/%{format2}
+untar_howtos; makehowtoindex %lang %language > index.html; cp -a * %{buildroot}%{_docdir}/HOWTO/%{format2}
 
-install -m 755 -d $RPM_BUILD_ROOT%{_datadir}/applications
+install -m 755 -d %{buildroot}%{_datadir}/applications
 cat > %{buildroot}%_datadir/applications/mandriva-%{name}.desktop << EOF
 [Desktop Entry]
 Name=Howto %language
@@ -46,10 +46,10 @@ Type=Application
 Categories=Documentation;
 EOF
 
-perl -p -i -e "s|<LI><A HREF=\"Bootdisk-HOWTO-NL.html\">De Linux Bootdisk HOWTO</A>|<LI><A HREF=\"Bootdisk-HOWTO-NL.html\">De Linux Bootdisk HOWTO</A>\n<LI><A HREF=\"Bootdisk/t1.html\">De Linux Bootdisk HOWTO</A>|" $RPM_BUILD_ROOT%{_docdir}/HOWTO/%{format2}/index.html
+perl -p -i -e "s|<LI><A HREF=\"Bootdisk-HOWTO-NL.html\">De Linux Bootdisk HOWTO</A>|<LI><A HREF=\"Bootdisk-HOWTO-NL.html\">De Linux Bootdisk HOWTO</A>\n<LI><A HREF=\"Bootdisk/t1.html\">De Linux Bootdisk HOWTO</A>|" %{buildroot}%{_docdir}/HOWTO/%{format2}/index.html
 # this perl line is needed to include the Bootdisk-howto which is in a directory with strange file name. 
 
-install -m 755 -d $RPM_BUILD_ROOT%{_datadir}/applications
+install -m 755 -d %{buildroot}%{_datadir}/applications
 cat > %{buildroot}%_datadir/applications/mandriva-%{name}.desktop << EOF
 [Desktop Entry]
 Name=Howto %language
@@ -62,7 +62,7 @@ Categories=Documentation;
 EOF
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
