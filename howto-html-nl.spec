@@ -7,7 +7,7 @@
 Summary:	%{language} HOWTO documents (html format) from the Linux Documentation Project
 Name:		howto-%{format1}
 Version:	10.1
-Release:	7
+Release:	8
 Group:		Books/Howtos
 License:	GPLv2
 Url:		http://nl.linux.org/doc/nlhowto.php
