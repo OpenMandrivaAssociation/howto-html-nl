@@ -10,7 +10,7 @@ Version:	10.1
 Release:	15
 Group:		Books/Howtos
 License:	GPLv2
-Url:		http://nl.linux.org/doc/nlhowto.php
+Url:		https://nl.linux.org/doc/nlhowto.php
 Source0:	%{name}.tar
 BuildArch:	noarch
 
